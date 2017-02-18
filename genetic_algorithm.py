@@ -74,7 +74,7 @@ for k in range(no_of_iterations):
 	    x2 = 0
 	    x3 = 0
 	    for j in range(len(global_array[i][0])-1):
-		x1 = x1 + global_array[i][0][len(global_array[i][0])-1-i] * 2**i
+		x1 = x1 + global_array[i][0][len(global_array[i][0])-1-j] * 2**j
 	    x1 = x1-1
 	    if global_array[i][0][0] == 0:
 		x1 = x1*(-1)
@@ -88,7 +88,7 @@ for k in range(no_of_iterations):
 
 	#variable 2 penality and calculation
 	    for j in range(len(global_array[i][1])-1):
-		x2 = x2 + global_array[i][1][len(global_array[i][1])-1-i] * 2**i
+		x2 = x2 + global_array[i][1][len(global_array[i][1])-1-j] * 2**j
 	    
 	    x2 = x2 -1
 	    if global_array[i][1][0] == 0:
@@ -106,7 +106,7 @@ for k in range(no_of_iterations):
 	#variable 3 penality and calculation
 
 	    for j in range(len(global_array[i][2])-1):
-		x3 = x3 + global_array[i][2][len(global_array[i][2])-1-i] * 2**i
+		x3 = x3 + global_array[i][2][len(global_array[i][2])-1-j] * 2**j
 	    
 	    x3 = x3 -1
 	    if global_array[i][2][0] == 0:
@@ -120,7 +120,7 @@ for k in range(no_of_iterations):
 	     
 	    if x3 > variable3max:
 		fitness[i][2] = 1 - float((x3-variable3max)/abs(2*variable3max))
-	    eq = -20*(2.71828**(-0.2*(1/3*(x1**2+x2**2+x3**2))**0.5))+(-2.71828**(1/3*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)+math.cos(2*3.14*x3))**0.5)) + 20 + 2.71828
+	    eq = -20*(2.71828**(-0.2*(1/3*(x1**2+x2**2+x3**2))**0.5))+(-2.71828**(1/3*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)+math.cos(2*3.14*x3)))) + 20 + 2.71828
 	    
 	    if eq < 0:
 	       eq_value.append(abs(1.5*eq))
