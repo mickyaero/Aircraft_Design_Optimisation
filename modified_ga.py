@@ -64,7 +64,7 @@ for k in range(n):
 eq_value = [0 for x in range(n)]
 eq_final = [0 for x in range(n)]
 fitness = [[1 for x in range(4)] for y in range(n)]
-no_of_iterations = 10000
+no_of_iterations = 10
 fitness_print = [0 for x in range(n)]
 fitness_final = [1 for i in range(n)]
 for k in range(no_of_iterations):
@@ -178,14 +178,16 @@ for k in range(no_of_iterations):
 	    for j in range(n):  
 		if c1<array_roulette[j][1] and c1 >= array_roulette[j][0]:
 		    gene_case1 = j
-		    break
+		else:
+		    pass
 	    
-	    c1 = random.uniform(0,100)
+	    c2 = random.uniform(0,100)
 	    for j in range(n):  
-		if c1<array_roulette[j][1] and c1 >= array_roulette[j][0]:
+		if c2<array_roulette[j][1] and c2 >= array_roulette[j][0]:
 		    gene_case2 = j
-		    break
-	    
+		else:
+		    pass
+	    print(gene_case1, gene_case2)
 	   #cross over
 	   
 	    dummy_array2 = global_array[gene_case2]
