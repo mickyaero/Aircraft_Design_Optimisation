@@ -1,5 +1,5 @@
 import math
-
+import copy
 import random
 def variable_generator(num):
     var_array = [] 
@@ -58,7 +58,7 @@ for k in range(n):
                 array_var[i][j] = 1
             else:
                 array_var[i][j] = 0
-    
+    l = copy.deepcopy(array_var)
     global_array.append(array_var)
 
 eq_value = [0 for x in range(n)]
