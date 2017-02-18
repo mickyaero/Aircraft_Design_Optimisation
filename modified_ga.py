@@ -169,8 +169,8 @@ for k in range(no_of_iterations):
 		for j in range(2):
 		    array_roulette[i][0] = array_roulette[i-1][1]
 		    array_roulette[i][1] =100* fitness_final[i] + array_roulette[i][0] 
-	    
-	for i in range(n/2):
+	#print(array_roulette)    
+	for i in range(n):
 	    c1 = random.uniform(0,100)
 	    gene_case1 = 0
 	    gene_case2 = 0
@@ -190,27 +190,31 @@ for k in range(no_of_iterations):
 	    dummy_array2 = global_array[gene_case2]
 	    for i in range(len(global_array[gene_case1][0])):
 		d =  random.uniform(0,1)
-		if d >=0.5:
+		if d >=0.1:
 		    global_array[gene_case2][0][i] = global_array[gene_case1][0][i]
-		    global_array[gene_case1][0][i] = dummy_array2[0][i]
+		else:
+	            pass
 
 	    for i in range(len(global_array[gene_case1][1])):
 		d =  random.uniform(0,1)
-		if d >=0.5:
+		if d >=0.1:
 		    global_array[gene_case2][1][i] = global_array[gene_case1][1][i]
-		    global_array[gene_case1][1][i] = dummy_array2[1][i]
+		else:
+		    pass
 
 
 	    for i in range(len(global_array[gene_case1][2])):
 		d =  random.uniform(0,1)
-		if d >=0.5:
+		if d >=0.1:
 		    global_array[gene_case2][2][i] = global_array[gene_case1][2][i]
-		    global_array[gene_case1][2][i] = dummy_array2[2][i]
+		else:
+                    pass
+		    
 
 	#print(global_array[1])
 	#mutation
 	#mutation needs to be improved
-	e1 = random.uniform(0,3) 
+	e1 = random.uniform(0,100) 
 	if e1 <= 2: 
 	    mutation_no = random.randint(1,n)
 	    for i in range(mutation_no):
