@@ -59,7 +59,7 @@ for k in range(n):
             else:
                 array_var[i][j] = 0
     l = copy.deepcopy(array_var)
-    global_array.append(array_var)
+    global_array.append(l)
 
 eq_value = [0 for x in range(n)]
 eq_final = [0 for x in range(n)]
