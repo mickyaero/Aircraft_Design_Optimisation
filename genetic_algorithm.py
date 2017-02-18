@@ -1,5 +1,5 @@
 import math
-import generating_gene_size
+
 import random
 def variable_generator(num):
     var_array = [] 
@@ -8,7 +8,22 @@ def variable_generator(num):
 
     return var_array
 
+def generating_gene_size(mini, maxi):
+    
+    gene_order_decide = max(abs(mini), abs(maxi))
+    bits = 20
 
+    while gene_order_decide <= 2 ** bits :
+        bits-=1
+    
+    bits = bits + 2
+    
+    gene = []
+    
+    for i in range(bits):
+        gene.append(0)
+ 
+    return gene
 no_of_variables = 3
 array_var = variable_generator(no_of_variables)
 variable1min = -200
@@ -19,11 +34,11 @@ variable3min = -200
 variable3max = 200
 
 
-array_var[0] = generating_gene_size.generating_gene_size(variable1min, variable1max)
+array_var[0] = generating_gene_size(variable1min, variable1max)
 
-array_var[1] = generating_gene_size.generating_gene_size(variable2min, variable2max)
+array_var[1] = generating_gene_size(variable2min, variable2max)
 
-array_var[2] = generating_gene_size.generating_gene_size(variable3min, variable3max)
+array_var[2] = generating_gene_size(variable3min, variable3max)
 
 x1 = 0
 x2 = 0
@@ -52,9 +67,12 @@ fitness = [[1 for x in range(4)] for y in range(n)]
 no_of_iterations = 10000
 fitness_print = [0 for x in range(n)]
 for k in range(no_of_iterations):
-        print k
+        
 	for i in range(n):
 	#variable 1 penality and calculation
+	    x1 = 0
+	    x2 = 0
+	    x3 = 0
 	    for j in range(len(global_array[i][0])-1):
 		x1 = x1 + global_array[i][0][len(global_array[i][0])-1-i] * 2**i
 	    x1 = x1-1
