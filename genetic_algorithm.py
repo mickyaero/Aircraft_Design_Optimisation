@@ -61,7 +61,7 @@ for k in range(n):
     
     global_array.append(array_var)
 
-eq_value = []
+eq_value = [0 for x in range(n)]
 eq_final = [0 for x in range(n)]
 fitness = [[1 for x in range(4)] for y in range(n)]
 no_of_iterations = 10000
@@ -123,9 +123,9 @@ for k in range(no_of_iterations):
 	    eq = -20*(2.71828**(-0.2*(1/3*(x1**2+x2**2+x3**2))**0.5))+(-2.71828**(1/3*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)+math.cos(2*3.14*x3)))) + 20 + 2.71828
 	    
 	    if eq < 0:
-	       eq_value.append(abs(1.5*eq))
+	       eq_value[i]=(abs(1.5*eq))
 	    else:
-	       eq_value.append(eq)
+	       eq_value[i]=(eq)
             eq_final[i] = eq
 
 	#calculating the overall fitness
@@ -137,10 +137,10 @@ for k in range(no_of_iterations):
 	for i in range(n):
 	    fitness[i][3] =1 -  (eq_value[i]/total_value) 
 	    
-	fitness_final = []
+	fitness_final = [1 for i in range(n)]
 	#fitness after penalties
 	for i in range(n):
-	    fitness_final.append(fitness[i][0]*fitness[i][1]*fitness[i][2]*fitness[i][3])
+	    fitness_final[i]=(fitness[i][0]*fitness[i][1]*fitness[i][2]*fitness[i][3])
 
 
 	total_fitness = sum(fitness_final)
@@ -150,8 +150,9 @@ for k in range(no_of_iterations):
 	   for i in range(n):
 	       fitness_final[i] = 1/n
 
-	for i in range(n):   
-	    fitness_final[i] = fitness_final[i]/total_fitness
+	else:
+	    for i in range(n):   
+	        fitness_final[i] = fitness_final[i]/total_fitness
 
         fitness_print = fitness_final
 	#Roulette Wheel And Cross Over
@@ -206,6 +207,7 @@ for k in range(no_of_iterations):
 		    global_array[gene_case2][2][i] = global_array[gene_case1][2][i]
 		    global_array[gene_case1][2][i] = dummy_array2[2][i]
 
+	print(global_array[1])
 	#mutation
 	#mutation needs to be improved
 	e1 = random.uniform(0,1000) 
@@ -233,7 +235,7 @@ for k in range(no_of_iterations):
 	       
 		if global_array[e2][2][e3] == 0:
 		   global_array[e2][2][e3] =1
-
+          
 
 print(min(eq_final))
 
