@@ -66,6 +66,7 @@ eq_final = [0 for x in range(n)]
 fitness = [[1 for x in range(4)] for y in range(n)]
 no_of_iterations = 10000
 fitness_print = [0 for x in range(n)]
+fitness_final = [1 for i in range(n)]
 for k in range(no_of_iterations):
         
 	for i in range(n):
@@ -123,7 +124,7 @@ for k in range(no_of_iterations):
 	    eq = -20*(2.71828**(-0.2*(1/3*(x1**2+x2**2+x3**2))**0.5))+(-2.71828**(1/3*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)+math.cos(2*3.14*x3)))) + 20 + 2.71828
 	    
 	    if eq < 0:
-	       eq_value[i]=(abs(1.5*eq))
+	       eq_value[i]=(abs(15*eq))
 	    else:
 	       eq_value[i]=(eq)
             eq_final[i] = eq
@@ -135,9 +136,9 @@ for k in range(no_of_iterations):
 	   total_value = max(eq_value) 
 
 	for i in range(n):
-	    fitness[i][3] =1 -  (eq_value[i]/total_value) 
+	    fitness[i][3] =(eq_value[i]/total_value) 
 	    
-	fitness_final = [1 for i in range(n)]
+	
 	#fitness after penalties
 	for i in range(n):
 	    fitness_final[i]=(fitness[i][0]*fitness[i][1]*fitness[i][2]*fitness[i][3])
@@ -170,7 +171,7 @@ for k in range(no_of_iterations):
 		    array_roulette[i][0] = array_roulette[i-1][1]
 		    array_roulette[i][1] =100* fitness_final[i] + array_roulette[i][0] 
 	#print(array_roulette)    
-	for i in range(n):
+	for z in range(n):
 	    c1 = random.uniform(0,100)
 	    gene_case1 = 0
 	    gene_case2 = 0
