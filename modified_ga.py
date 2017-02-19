@@ -252,6 +252,9 @@ for k in range(no_of_iterations):
 
 #post processing
 check = 0
+x1 =0 
+x2=0
+x3=0
 for i in range(n):
     if min(eq_final) == eq_final[i]:
          check = i
