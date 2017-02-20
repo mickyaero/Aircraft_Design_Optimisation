@@ -183,7 +183,7 @@ for k in range(no_of_iterations):
 	    
 	    for j in range(len(global_array[i][0])-1):
 		x1 = x1 + global_array[i][0][len(global_array[i][0])-1-j] * 2**j
-	    x1 = x1-1
+	    
 	    if global_array[i][0][0] == 0:
 		x1 = x1*(-1)
 	    
@@ -200,7 +200,7 @@ for k in range(no_of_iterations):
 	    for j in range(len(global_array[i][1])-1):
 		x2 = x2 + global_array[i][1][len(global_array[i][1])-1-j] * 2**j
 	    
-	    x2 = x2 -1
+	    
 	    if global_array[i][1][0] == 0:
 	       x2 = x2 * (-1)
 	    
@@ -238,14 +238,14 @@ for k in range(no_of_iterations):
         for j in range(len(global_array[check][0])-1):
             x1 = x1 + global_array[check][0][len(global_array[check][0])-1-j] * 2**j
 
-        x1 = x1 -1
+        
         if global_array[check][0][0] == 0:
             x1 = x1 * (-1)
 
         for j in range(len(global_array[check][1])-1):
             x2 = x2 + global_array[check][1][len(global_array[check][1])-1-j] * 2**j
 
-        x2 = x2 -1
+        
         if global_array[check][1][0] == 0:
             x2 = x2 * (-1)
 
