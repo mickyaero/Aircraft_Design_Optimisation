@@ -4,6 +4,11 @@ import copy
 import random
 import pdb
 
+def equation_calc(x1):
+    expr =  -20*(2.71828**(-0.2*(1*(x1**2))**0.5))+(-2.71828**(1*(math.cos(2*3.14*x1)))) + 20 + 2.71828
+
+    return expr
+
 def variable_generator(num):
     var_array = [] 
     for i in range(num):
@@ -179,9 +184,8 @@ for k in range(no_of_iterations):
 		fitness[i][0] = 1 -float(x1-variable1max)/abs(2*variable1max)
 	    #print(fitness[i][0])
 		 
-	    eq =  -20*(2.71828**(-0.2*(1*(x1**2))**0.5))+(-2.71828**(1*(math.cos(2*3.14*x1)))) + 20 + 2.71828
-
-	    #print(eq)	    
+	    eq = equation_calc(x1)	    
+#print(eq)	    
 	    if eq < 0:
 	       eq_value[i]=(abs(1/eq))
 	    else:
@@ -262,8 +266,7 @@ x1 = result_array[check2][1]
 print(result_array[check2][0],'', 'x1', x1)
 #this is not the overall minima , this is the minima of the last iteration...its a drawback, may not work always
 
-q = -20*(2.71828**(-0.2*(1*(x1**2))**0.5))+(-2.71828**(1*(math.cos(2*3.14*x1)))) + 20 + 2.71828
-
+q = equation_calc(x1)
 print(q)
 
 

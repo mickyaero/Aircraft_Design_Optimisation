@@ -3,6 +3,12 @@ import math
 import copy
 import random
 
+
+def equation_calc(x1, x2, x3):
+    expr =  -20*(2.71828**(-0.2*(1/3*(x1**2+x2**2+x3**2))**0.5))+(-2.71828**(1/3*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)+math.cos(2*3.14*x3)))) + 20 + 2.71828
+ 
+    return expr
+
 def variable_generator(num):
     var_array = [] 
     for i in range(num):
@@ -48,7 +54,7 @@ x3 = 0
 
 
 #generating the population size = n
-n= 50
+n= 100
 global_array = []
 for k in range(n):
     #random initialization of array_var
@@ -65,7 +71,7 @@ for k in range(n):
 eq_value = [0 for x in range(n)]
 eq_final = [0 for x in range(n)]
 fitness = [[1 for x in range(4)] for y in range(n)]
-no_of_iterations = 100
+no_of_iterations = 500
 fitness_print = [0 for x in range(n)]
 fitness_final = [1 for i in range(n)]
 result_array = [[0 for i in range(no_of_variables+1)]for j in range(no_of_iterations)]
@@ -217,7 +223,7 @@ for k in range(no_of_iterations):
 	    if global_array[i][1][0] == 0:
 	       x2 = x2 * (-1)
 	    
-	    print(x2)
+	    #print(x2)
 	    if x2 < variable2min:
 		fitness[i][1] = 1 -float(variable2min-x2)/abs(2*variable2min)
 		   
@@ -244,8 +250,8 @@ for k in range(no_of_iterations):
 	    if x3 > variable3max:
 		fitness[i][2] = 1 - float(x3-variable3max)/abs(2*variable3max)
 	    
-            eq = -20*(2.71828**(-0.2*(1/3*(x1**2+x2**2+x3**2))**0.5))+(-2.71828**(1/3*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)+math.cos(2*3.14*x3)))) + 20 + 2.71828
-            print(eq)	    
+            eq = equation_calc(x1, x2, x3)
+            #print(eq)	    
 	    if eq < 0:
 	       eq_value[i]=(abs(1/eq))
 	    else:
@@ -308,10 +314,10 @@ for i in range(no_of_iterations):
 x1 = result_array[check2][1]
 x2 = result_array[check2][2]
 x3 = result_array[check2][3]
-print(result_array[check2])
+#print(result_array[check2])
 print(result_array[check2][0],'', 'x1', x1, '','x2', x2, '','x3',x3)
 
 
-q = -20*(2.71828**(-0.2*(1/3*(x1**2+x2**2+x3**2))**0.5))+(-2.71828**(1/3*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)+math.cos(2*3.14*x3)))) + 20 + 2.71828
+q = equation_calc(x1, x2, x3) 
 
 print(q)

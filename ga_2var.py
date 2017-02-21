@@ -3,6 +3,12 @@ import math
 import copy
 import random
 
+def equation_calc(x1, x2):
+    expr = -20*(2.71828**(-0.2*(1/2*(x1**2+x2**2))**0.5))+(-2.71828**(1/2*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)))) + 20 + 2.71828
+
+
+    return expr
+
 def variable_generator(num):
     var_array = [] 
     for i in range(num):
@@ -214,8 +220,7 @@ for k in range(no_of_iterations):
 		fitness[i][1] = 1 -float(x2-variable2max)/abs(2*variable2max)
 
 	 
-            eq = -20*(2.71828**(-0.2*(1/2*(x1**2+x2**2))**0.5))+(-2.71828**(1/2*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)))) + 20 + 2.71828
-
+            eq = equation_calc(x1, x2)
             print(eq)	    
 	    if eq < 0:
 	       eq_value[i]=(abs(1/eq))
@@ -278,7 +283,7 @@ x2 = result_array[check2][2]
 print(result_array[check2][0],'', 'x1', x1, '','x2', x2)
 #this is not the overall minima , this is the minima of the last iteration...its a drawback, may not work always
 
-q = -20*(2.71828**(-0.2*(1/2*(x1**2+x2**2))**0.5))+(-2.71828**(1/2*(math.cos(2*3.14*x1)+math.cos(2*3.14*x2)))) + 20 + 2.71828
+q = equation_calc(x1, x2)
 
 print(q)
 
