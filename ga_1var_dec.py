@@ -171,7 +171,7 @@ for k in range(no_of_iterations):
 	    for j in range(len_array_i_var-1):
 		x1 = x1 + global_array[i][0][len_array_i_var-1-j] * 2**j
 	    for l in range(10):
-                x1 = x1 + global_array[i][0][len_array_i_var+l]/2**l
+                x1 = x1 + global_array[i][0][len_array_i_var+l]*2**l/1024
                 
             #x1 = x1-1
 	    if global_array[i][0][0] == 0:
@@ -215,7 +215,7 @@ for k in range(no_of_iterations):
 	    x1 = x1 + global_array[check][0][len_array_check-1-j] * 2**j
        
         for l in range(10):
-            x1 = x1 + global_array[i][0][len_array_i_var+l]/2**l
+            x1 = x1 + global_array[i][0][len_array_i_var+l]*2**l/1024
 #x1 = x1 -1
 	if global_array[check][0][0] == 0:
 	    x1 = x1 * (-1)
